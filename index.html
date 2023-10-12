@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scardey Movie Jonners</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1a1a1a; /* Dark Background Color */
+            color: #ffffff; /* White Text Color */
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            font-family: 'Creepster', cursive; /* Halloween-themed Scary Font */
+            font-size: 5em; /* Two sizes larger */
+            color: #FF5733; /* Halloween Orange */
+            margin-top: 50px;
+        }
+        .movie {
+            margin: 20px;
+            text-align: center;
+            background-color: #2c2c2c; /* Dark Gray Background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .movie h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .movie img {
+            width: 100%; /* Responsive Image */
+            max-width: 300px; /* Maximum Width for Images */
+            height: auto;
+            border-radius: 5px;
+            cursor: pointer; /* Set cursor to pointer for clickable items */
+        }
+        .movie a {
+            text-decoration: none;
+            color: #FFC857; /* Mustard Yellow */
+            font-weight: bold;
+        }
+        .movie a:hover {
+            text-decoration: underline;
+        }
+        .popup-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        var counter = 0;
+        function incrementCounterAndShowPopup() {
+            counter++;
+            console.log("Image selected " + counter + " times");
+            var popup = document.getElementById("popupMessage");
+            popup.style.display = "block";
+            setTimeout(function(){
+                popup.style.display = "none";
+            }, 2000); // Message disappears after 2 seconds (2000 milliseconds)
+        }
+    </script>
+</head>
+<body>
+    <h1>Scardey Movie Jonners</h1>
+    <div class="movie">
+        <h2>No One Will Save You</h2>
+        <a href="#" onclick="incrementCounterAndShowPopup()"><img src="https://www.themoviedb.org/t/p/original/c8IFXUWXMnKFvXfC5Q4muR3LAeM.jpg"></a>
+    </div>
+    <div class="movie">
+        <h2>Talk to Me</h2>
+        <a href="#" onclick="incrementCounterAndShowPopup()"><img src="https://www.themoviedb.org/t/p/original/kw0Hegzpg08v37nRcmczCvqpl7d.jpg" alt="Talk to Me Poster"></a>
+    </div>
+    <div class="movie">
+        <h2>The Nun 2</h2>
+        <a href="#" onclick="incrementCounterAndShowPopup()"><img src="https://www.themoviedb.org/t/p/original/5gzzkR7y3hnY8AD1wXjCnVlHba5.jpg"></a>
+    </div>
+    <div class="movie">
+        <h2>Totally Killer</h2>
+        <a href="#" onclick="incrementCounterAndShowPopup()"><img src="https://www.themoviedb.org/t/p/original/52YBwGJ3cJs54fpBzwnT1lnqgTo.jpg"></a>
+    </div>
+    <!-- Popup message -->
+    <div id="popupMessage" class="popup-message">Thanks for Voting</div>
+</body>
+</html>
