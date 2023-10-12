@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <title>Scardey Movie Jonners</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'GFS Didot', sans-serif;
             background-color: #1a1a1a; /* Dark Background Color */
             color: #ffffff; /* White Text Color */
             margin: 0;
@@ -30,6 +31,7 @@
         .movie h2 {
             font-size: 1.5em;
             margin-bottom: 10px;
+            color: #FFA500; /* Orange Text Color */
         }
         .movie img {
             width: 100%; /* Responsive Image */
@@ -57,6 +59,12 @@
             padding: 20px;
             border-radius: 10px;
         }
+        .instruction-text {
+            text-align: center;
+            font-size: 1.2em;
+            color: #FFFFFF; /* White */
+            margin-top: 20px;
+        }
     </style>
     <script>
         var counter = 0;
@@ -73,6 +81,8 @@
 </head>
 <body>
     <h1>Scardey Movie Jonners</h1>
+        <!-- Instruction text -->
+    <div class="instruction-text">SELECT MOVIE POSTER TO VOTE</div>
     <div class="movie">
         <h2>No One Will Save You</h2>
         <a href="#" onclick="incrementCounterAndShowPopup()"><img src="https://www.themoviedb.org/t/p/original/c8IFXUWXMnKFvXfC5Q4muR3LAeM.jpg"></a>
@@ -88,6 +98,10 @@
     <div class="movie">
         <h2>Totally Killer</h2>
         <a href="#" onclick="incrementCounterAndShowPopup()"><img src="https://www.themoviedb.org/t/p/original/52YBwGJ3cJs54fpBzwnT1lnqgTo.jpg"></a>
+    </div>
+    <div class="movie">
+        <h2>Pet Sematary</h2>
+        <a href="#" onclick="incrementCounterAndShowPopup()"><img src="https://www.themoviedb.org/t/p/original/yqnNLn24shYnZ6kqGpbwuB3NJ0D.jpg"></a>
     </div>
     <!-- Popup message -->
     <div id="popupMessage" class="popup-message">Thanks for Voting</div>
