@@ -2,108 +2,83 @@
 <html lang="en">
 
 <head>
-    <title>Scardey Movie Jonners</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Poster Display</title>
     <style>
-        body {
-            font-family: 'GFS Didot', sans-serif;
-            background-color: #1a1a1a; /* Dark Background Color */
-            color: #ffffff; /* White Text Color */
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            text-align: center;
-            font-family: 'Creepster', cursive; /* Halloween-themed Scary Font */
-            font-size: 5em; /* Two sizes larger */
-            color: #FF5733; /* Halloween Orange */
-            margin-top: 50px;
-        }
-        .movie {
-            margin: 20px;
-            text-align: center;
-            background-color: #2c2c2c; /* Dark Gray Background */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        .movie h2 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: #FFA500; /* Orange Text Color */
-        }
-        .movie img {
-            width: 100%; /* Responsive Image */
-            max-width: 300px; /* Maximum Width for Images */
-            height: auto;
-            border-radius: 5px;
-            cursor: pointer; /* Set cursor to pointer for clickable items */
-        }
-        .movie a {
-            text-decoration: none;
-            color: #FFC857; /* Mustard Yellow */
-            font-weight: bold;
-        }
-        .movie a:hover {
-            text-decoration: underline;
-        }
-        .popup-message {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .instruction-text {
-            text-align: center;
-            font-size: 1.2em;
-            color: #FFFFFF; /* White */
-            margin-top: 20px;
+        #poster {
+            max-width: 300px;
         }
     </style>
-    <script>
-        var counter = 0;
-        function incrementCounterAndShowPopup() {
-            counter++;
-            console.log("Image selected " + counter + " times");
-            var popup = document.getElementById("popupMessage");
-            popup.style.display = "block";
-            setTimeout(function(){
-                popup.style.display = "none";
-            }, 2000); // Message disappears after 2 seconds (2000 milliseconds)
-        }
-    </script>
 </head>
+
 <body>
-    <h1>Scardey Movie Jonners</h1>
-        <!-- Instruction text -->
-    <div class="instruction-text">SELECT MOVIE POSTER TO VOTE</div>
-    <div class="movie">
-        <h2>No One Will Save You</h2>
-        <a href="#" onclick="incrementCounterAndShowPopup()"><img src="https://www.themoviedb.org/t/p/original/c8IFXUWXMnKFvXfC5Q4muR3LAeM.jpg"></a>
+    <h1>Now Playing Movie Poster</h1>
+    <div id="movieDetails">
+        <p><strong>Movie Title:</strong> <span id="movieTitle"></span></p>
+        <img src="" alt="Movie Poster" id="poster">
     </div>
-    <div class="movie">
-        <h2>Talk to Me</h2>
-        <a href="#" onclick="incrementCounterAndShowPopup()"><img src="https://www.themoviedb.org/t/p/original/kw0Hegzpg08v37nRcmczCvqpl7d.jpg" alt="Talk to Me Poster"></a>
-    </div>
-    <div class="movie">
-        <h2>The Nun 2</h2>
-        <a href="#" onclick="incrementCounterAndShowPopup()"><img src="https://www.themoviedb.org/t/p/original/5gzzkR7y3hnY8AD1wXjCnVlHba5.jpg"></a>
-    </div>
-    <div class="movie">
-        <h2>Totally Killer</h2>
-        <a href="#" onclick="incrementCounterAndShowPopup()"><img src="https://www.themoviedb.org/t/p/original/52YBwGJ3cJs54fpBzwnT1lnqgTo.jpg"></a>
-    </div>
-    <div class="movie">
-        <h2>Pet Sematary</h2>
-        <a href="#" onclick="incrementCounterAndShowPopup()"><img src="https://www.themoviedb.org/t/p/original/yqnNLn24shYnZ6kqGpbwuB3NJ0D.jpg"></a>
-    </div>
-    <!-- Popup message -->
-    <div id="popupMessage" class="popup-message">Thanks for Voting</div>
+
+    <script>
+        // Replace 'YOUR_API_KEY' with your actual TMDB API key
+        const TMDB_API_KEY = '500be8667da9edfdb162ea9a17d6bfd4';
+        const KODI_JSONRPC_URL = 'http://192.168.0.154:8080/jsonrpc'; // Kodi JSON-RPC API URL
+
+        async function getNowPlayingMovie() {
+            try {
+                const response = await fetch(KODI_JSONRPC_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        jsonrpc: '2.0',
+                        method: 'Player.GetItem',
+                        params: {
+                            playerid: 1, // Assuming playerid 1 corresponds to currently playing video
+                            properties: ['title']
+                        },
+                        id: 1
+                    }),
+                });
+
+                const data = await response.json();
+                return data.result.item.title;
+            } catch (error) {
+                console.error('Error getting now playing movie:', error);
+                return null;
+            }
+        }
+
+        async function getMoviePoster(movieTitle) {
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${500be8667da9edfdb162ea9a17d6bfd4}&query=${encodeURIComponent(movieTitle)}`);
+                const data = await response.json();
+                const posterPath = data.results[0].poster_path;
+                const posterUrl = `https://image.tmdb.org/t/p/w500/${posterPath}`;
+                return posterUrl;
+            } catch (error) {
+                console.error('Error getting movie poster:', error);
+                return null;
+            }
+        }
+
+        async function displayMoviePoster() {
+            const movieTitle = await getNowPlayingMovie();
+            if (movieTitle) {
+                document.getElementById('movieTitle').textContent = movieTitle;
+                const posterUrl = await getMoviePoster(movieTitle);
+                if (posterUrl) {
+                    document.getElementById('poster').src = posterUrl;
+                }
+            } else {
+                document.getElementById('movieDetails').textContent = 'No movie is currently playing.';
+            }
+        }
+
+        // Call the function when the page is loaded
+        window.onload = displayMoviePoster;
+    </script>
 </body>
+
 </html>
