@@ -22,14 +22,18 @@
     <script>
         // Replace 'YOUR_API_KEY' with your actual TMDB API key
         const TMDB_API_KEY = '500be8667da9edfdb162ea9a17d6bfd4';
-        const KODI_JSONRPC_URL = 'http://192.168.0.154:8080/jsonrpc'; // Kodi JSON-RPC API URL
+        const KODI_HOST = '192.168.0.124'; // Change this to the IP address or hostname where Kodi is running
+        const KODI_PORT = '8080'; // Change this if your Kodi setup uses a different port number
+        const KODI_USERNAME = 'kodi'; // Replace with your Kodi username
+        const KODI_PASSWORD = 'weeju'; // Replace with your Kodi password
 
         async function getNowPlayingMovie() {
             try {
-                const response = await fetch(KODI_JSONRPC_URL, {
+                const response = await fetch(`http://${KODI_HOST}:${KODI_PORT}/jsonrpc`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': 'Basic ' + btoa(`${KODI_USERNAME}:${KODI_PASSWORD}`),
                     },
                     body: JSON.stringify({
                         jsonrpc: '2.0',
