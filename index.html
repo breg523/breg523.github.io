@@ -1,94 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Poster Display</title>
-    <style>
-        #poster {
-            max-width: 300px;
-        }
-    </style>
+    <title>Now Playing Movie Poster</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-
 <body>
-    <h1>Now Playing Movie Poster</h1>
-    <div id="movieDetails">
-        <p><strong>Movie Title:</strong> <span id="movieTitle"></span></p>
-        <img src="" alt="Movie Poster" id="poster">
-    </div>
+    <div id="poster"></div>
 
     <script>
-        const TMDB_API_KEY = '500be8667da9edfdb162ea9a17d6bfd4';
-        const KODI_USERNAME = 'kodi';
-        const KODI_PASSWORD = 'weeju20';
-        const KODI_IP_ADDRESS = '192.168.0.154';
-        const KODI_PORT = '8080';
+        $(document).ready(function() {
+            $.ajax({
+                url: 'http://kodi:weeju20@192.168.0.154:8080/jsonrpc',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "jsonrpc": "2.0",
+                    "method": "Player.GetItem",
+                    "params": { "properties": ["title"], "playerid": 1 },
+                    "id": "libPlaying"
+                }),
+                success: function(data) {
+                    var movieTitle = data.result.item.title;
 
-        const KODI_API_URL = `https://${KODI_IP_ADDRESS}:${KODI_PORT}/jsonrpc`;
-
-        async function getNowPlayingMovie() {
-            try {
-                const response = await fetch(KODI_API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    credentials: 'include', // Include cookies and HTTP authentication information in the request.
-                    body: JSON.stringify({
-                        jsonrpc: '2.0',
-                        method: 'Player.GetItem',
-                        params: {
-                            playerid: 1, // Assuming playerid 1 corresponds to currently playing video
-                            properties: ['title']
-                        },
-                        id: 1
-                    }),
-                });
-
-                const data = await response.json();
-                return data.result.item.title;
-            } catch (error) {
-                console.error('Error getting now playing movie:', error);
-                return null;
-            }
-        }
-
-        async function getMoviePoster(movieTitle) {
-            try {
-                const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(movieTitle)}`);
-                const data = await response.json();
-                const posterPath = data.results[0].poster_path;
-                const posterUrl = `https://image.tmdb.org/t/p/w500/${posterPath}`;
-                return posterUrl;
-            } catch (error) {
-                console.error('Error getting movie poster:', error);
-                return null;
-            }
-        }
-
-        async function displayMoviePoster() {
-            try {
-                const movieTitle = await getNowPlayingMovie();
-                if (movieTitle) {
-                    document.getElementById('movieTitle').textContent = movieTitle;
-                    const posterUrl = await getMoviePoster(movieTitle);
-                    if (posterUrl) {
-                        document.getElementById('poster').src = posterUrl;
-                    } else {
-                        console.error('Poster URL not found.');
-                    }
-                } else {
-                    document.getElementById('movieDetails').textContent = 'No movie is currently playing.';
+                    $.ajax({
+                        url: 'https://api.themoviedb.org/3/search/movie?api_key=500be8667da9edfdb162ea9a17d6bfd4&query=' + movieTitle,
+                        type: 'GET',
+                        success: function(data) {
+                            var posterPath = data.results[0].poster_path;
+                            $('#poster').html('<img src="https://image.tmdb.org/t/p/w500' + posterPath + '" />');
+                        }
+                    });
                 }
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }
-
-        window.onload = displayMoviePoster;
+            });
+        });
     </script>
 </body>
-
 </html>
