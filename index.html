@@ -21,16 +21,21 @@
 
     <script>
         const TMDB_API_KEY = '500be8667da9edfdb162ea9a17d6bfd4';
-        const KODI_API_URL = 'https://kodi:weeju20@192.168.0.154:443/jsonrpc'; // Update this URL with your Kodi's HTTPS endpoint
+        const KODI_USERNAME = 'kodi';
+        const KODI_PASSWORD = 'weeju20';
+        const KODI_IP_ADDRESS = '192.168.0.154';
+        const KODI_PORT = '443'; // Assuming you've configured Kodi to use HTTPS on port 443
+
+        const KODI_API_URL = `https://${KODI_IP_ADDRESS}:${KODI_PORT}/jsonrpc`;
 
         async function getNowPlayingMovie() {
             try {
-                const response = await fetch(`${KODI_API_URL}`, {
+                const response = await fetch(KODI_API_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        // Include any additional headers if required
                     },
+                    credentials: 'include', // Include cookies and HTTP authentication information in the request.
                     body: JSON.stringify({
                         jsonrpc: '2.0',
                         method: 'Player.GetItem',
