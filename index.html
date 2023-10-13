@@ -20,12 +20,11 @@
     </div>
 
     <script>
-        // Replace 'YOUR_API_KEY' with your actual TMDB API key
-        const TMDB_API_KEY = 500be8667da9edfdb162ea9a17d6bfd4;
-        const KODI_HOST = 192.168.0.154; // Change this to the IP address or hostname where Kodi is running
-        const KODI_PORT = 8080; // Change this if your Kodi setup uses a different port number
-        const KODI_USERNAME = kodi; // Replace with your Kodi username
-        const KODI_PASSWORD = weeju; // Replace with your Kodi password
+        const TMDB_API_KEY = '500be8667da9edfdb162ea9a17d6bfd4';
+        const KODI_HOST = '192.168.1.154'; // Replace with the IP address or hostname of your Kodi instance
+        const KODI_PORT = '8080'; // Replace with the correct port number for your Kodi JSON-RPC API
+        const KODI_USERNAME = 'kodi';
+        const KODI_PASSWORD = 'weeju';
 
         async function getNowPlayingMovie() {
             try {
@@ -47,6 +46,7 @@
                 });
 
                 const data = await response.json();
+                console.log('Now Playing Movie Response:', data); // Debugging console log
                 return data.result.item.title;
             } catch (error) {
                 console.error('Error getting now playing movie:', error);
@@ -58,6 +58,7 @@
             try {
                 const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(movieTitle)}`);
                 const data = await response.json();
+                console.log('TMDB API Response:', data); // Debugging console log
                 const posterPath = data.results[0].poster_path;
                 const posterUrl = `https://image.tmdb.org/t/p/w500/${posterPath}`;
                 return posterUrl;
@@ -68,19 +69,24 @@
         }
 
         async function displayMoviePoster() {
-            const movieTitle = await getNowPlayingMovie();
-            if (movieTitle) {
-                document.getElementById('movieTitle').textContent = movieTitle;
-                const posterUrl = await getMoviePoster(movieTitle);
-                if (posterUrl) {
-                    document.getElementById('poster').src = posterUrl;
+            try {
+                const movieTitle = await getNowPlayingMovie();
+                if (movieTitle) {
+                    document.getElementById('movieTitle').textContent = movieTitle;
+                    const posterUrl = await getMoviePoster(movieTitle);
+                    if (posterUrl) {
+                        document.getElementById('poster').src = posterUrl;
+                    } else {
+                        console.error('Poster URL not found.');
+                    }
+                } else {
+                    document.getElementById('movieDetails').textContent = 'No movie is currently playing.';
                 }
-            } else {
-                document.getElementById('movieDetails').textContent = 'No movie is currently playing.';
+            } catch (error) {
+                console.error('Error:', error);
             }
         }
 
-        // Call the function when the page is loaded
         window.onload = displayMoviePoster;
     </script>
 </body>
