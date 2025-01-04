@@ -36,6 +36,15 @@ button {
   cursor: pointer;
 }
 
+.poster {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
 button:hover {
   background-color: #d40813;
 }
