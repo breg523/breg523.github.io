@@ -1,25 +1,86 @@
+/* General Reset */
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #121212;
   color: white;
-  text-align: center;
-  padding: 20px;
+  background-color: #121212;
 }
 
-.container {
+/* Hero Section */
+#hero {
+  position: relative;
+  text-align: center;
+  padding: 50px 20px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(8px) brightness(0.5);
+  z-index: -1;
+}
+
+.hero-content {
   max-width: 600px;
   margin: auto;
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-form {
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e50914;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2rem;
   margin-top: 20px;
 }
 
-input {
+.btn:hover {
+  background-color: #d40813;
+}
+
+/* Fight Details Section */
+#fights {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.fight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.fight-card {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* RSVP Section */
+#rsvp {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+form input {
   margin: 10px 0;
   padding: 10px;
   width: calc(100% - 20px);
@@ -27,7 +88,7 @@ input {
   border-radius: 5px;
 }
 
-button {
+form button {
   background-color: #e50914;
   color: white;
   border: none;
@@ -36,15 +97,14 @@ button {
   cursor: pointer;
 }
 
-.poster {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 10px;
-  margin: 20px 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+form button:hover {
+  background-color: #d40813;
 }
 
-
-button:hover {
-  background-color: #d40813;
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #1e1e1e;
+  margin-top: 50px;
 }
