@@ -1,68 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>Now Playing Movie Poster</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boys Night: UFC 311</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <h1>Now Playing Movie Poster</h1>
-    <div id="poster"></div>
-
-    <script>
-        async function fetchData() {
-            try {
-                const response = await fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=500be8667da9edfdb162ea9a17d6bfd4');
-                const data = await response.json();
-
-                if (data.results && data.results.length > 0) {
-                    const movie = data.results[0];
-                    const posterPath = movie.poster_path;
-                    const posterUrl = `https://image.tmdb.org/t/p/original${posterPath}`;
-
-                    // Kodi credentials
-                    const kodiUsername = 'kodi';
-                    const kodiPassword = 'weeju20';
-
-                    // Update Kodi using Kodi JSON-RPC API with Basic Authentication
-                    const kodiUrl = 'http://192.168.0.154:8080/jsonrpc';
-                    const kodiPayload = {
-                        jsonrpc: '2.0',
-                        method: 'Player.SetPartymode',
-                        params: {
-                            data: {
-                                item: {
-                                    thumbnail: posterUrl,
-                                    title: movie.title
-                                }
-                            }
-                        },
-                        id: 1
-                    };
-
-                    await fetch(kodiUrl, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Basic ' + btoa(`${kodiUsername}:${kodiPassword}`)
-                        },
-                        body: JSON.stringify(kodiPayload)
-                    });
-
-                    // Display movie poster
-                    const posterElement = document.getElementById('poster');
-                    posterElement.innerHTML = `<h2>${movie.title}</h2><img src="${posterUrl}" alt="Movie Poster">`;
-                } else {
-                    console.error('No movies currently playing.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }
-
-        fetchData();
-    </script>
+  <div class="container">
+    <h1>Boys Night: UFC 311</h1>
+    <p><strong>Date:</strong> Saturday, [Insert Date]</p>
+    <p><strong>Location:</strong> [Insert Location]</p>
+    <h2>Main Card</h2>
+    <ul>
+      <li><strong>Lightweight:</strong> Islam Makhachev (c) vs. Arman Tsarukyan</li>
+      <li><strong>Bantamweight:</strong> Merab Dvalishvili (c) vs. Umar Nurmagomedov</li>
+      <li><strong>Light Heavyweight:</strong> Jiří Procházka vs. Jamahal Hill</li>
+      <li><strong>Lightweight:</strong> Beneil Dariush vs. Renato Moicano</li>
+      <li><strong>Middleweight:</strong> Kevin Holland vs. Reinier de Ridder</li>
+    </ul>
+    <h3>RSVP</h3>
+    <form id="rsvp-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="response-message"></p>
+  </div>
+  <script src="script.js"></script>
 </body>
-
 </html>
