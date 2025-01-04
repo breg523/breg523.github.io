@@ -6,10 +6,19 @@ body {
   background-color: #121212;
 }
 
+/* Top Banner */
+#banner {
+  background-color: #00c896; /* Updated color: Green */
+  color: white;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 1rem;
+}
+
 /* Hero Section */
 #hero {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 50px); /* Adjusted for banner height */
   text-align: center;
   overflow: hidden;
 }
@@ -33,52 +42,53 @@ body {
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
+  padding: 0 15px;
 }
 
 .hero-overlay h1 {
-  font-size: 4rem;
+  font-size: 3rem; /* Smaller font for better scaling */
   font-weight: bold;
   margin-bottom: 20px;
   text-transform: uppercase;
-  color: #e50914;
+  color: #00c896; /* Updated color: Green */
 }
 
 .hero-overlay p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
 .btn {
   display: inline-block;
   padding: 12px 25px;
-  background-color: #e50914;
+  background-color: #00c896; /* Updated button color */
   color: white;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem; /* Scaled down for mobile */
   transition: background-color 0.3s;
 }
 
 .btn:hover {
-  background-color: #d40813;
+  background-color: #00b583; /* Slightly darker green on hover */
 }
 
 /* Fight Details Section */
 #fights {
-  padding: 50px 20px;
+  padding: 30px 20px;
   text-align: center;
   background: #1e1e1e;
 }
 
 #fights h2 {
-  font-size: 2.5rem;
+  font-size: 2rem; /* Scaled down for better mobile display */
   margin-bottom: 20px;
-  color: #e50914;
+  color: #00c896; /* Updated color: Green */
 }
 
 .fight-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
   gap: 20px;
 }
 
@@ -90,22 +100,32 @@ body {
 }
 
 .fight-card h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-bottom: 10px;
-  color: #e50914;
+  color: #00c896; /* Updated color: Green */
 }
 
 .fight-card p {
-  font-size: 1rem;
+  font-size: 0.9rem; /* Smaller font for mobile */
   color: #ffffffcc;
 }
 
-/* Footer */
-footer {
-  padding: 20px;
-  text-align: center;
-  background: #292929;
-  margin-top: 50px;
-  font-size: 1rem;
-  color: #ffffffcc;
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+  .hero-overlay h1 {
+    font-size: 2.5rem; /* Adjusted for smaller screens */
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  #fights h2 {
+    font-size: 1.5rem;
+  }
 }
