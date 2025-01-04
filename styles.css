@@ -6,19 +6,10 @@ body {
   background-color: #121212;
 }
 
-/* Top Banner */
-#banner {
-  background-color: #00c896; /* Updated color: Green */
-  color: white;
-  text-align: center;
-  padding: 10px 15px;
-  font-size: 1rem;
-}
-
 /* Hero Section */
 #hero {
   position: relative;
-  height: calc(100vh - 50px); /* Adjusted for banner height */
+  height: 100vh;
   text-align: center;
   overflow: hidden;
 }
@@ -46,7 +37,7 @@ body {
 }
 
 .hero-overlay h1 {
-  font-size: 3rem; /* Smaller font for better scaling */
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 20px;
   text-transform: uppercase;
@@ -65,12 +56,41 @@ body {
   color: white;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 1rem; /* Scaled down for mobile */
+  font-size: 1rem;
   transition: background-color 0.3s;
 }
 
 .btn:hover {
   background-color: #00b583; /* Slightly darker green on hover */
+}
+
+/* Event Info Section */
+#event-info {
+  text-align: center;
+  background-color: #1e1e1e;
+  padding: 20px;
+  margin-top: -20px;
+}
+
+#event-info p {
+  font-size: 1.2rem;
+  color: #ffffffcc;
+  margin-bottom: 10px;
+}
+
+.btn-calendar {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #007bff; /* Blue for calendar button */
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-calendar:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
 /* Fight Details Section */
@@ -81,14 +101,14 @@ body {
 }
 
 #fights h2 {
-  font-size: 2rem; /* Scaled down for better mobile display */
+  font-size: 2rem;
   margin-bottom: 20px;
   color: #00c896; /* Updated color: Green */
 }
 
 .fight-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
@@ -102,18 +122,18 @@ body {
 .fight-card h3 {
   font-size: 1rem;
   margin-bottom: 10px;
-  color: #00c896; /* Updated color: Green */
+  color: #00c896;
 }
 
 .fight-card p {
-  font-size: 0.9rem; /* Smaller font for mobile */
+  font-size: 0.9rem;
   color: #ffffffcc;
 }
 
-/* Mobile Responsive Design */
+/* Responsive Design */
 @media screen and (max-width: 768px) {
   .hero-overlay h1 {
-    font-size: 2.5rem; /* Adjusted for smaller screens */
+    font-size: 2.5rem;
   }
 
   .hero-overlay p {
