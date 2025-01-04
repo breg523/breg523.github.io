@@ -7,27 +7,59 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Boys Night: UFC 311</h1>
-    <img src="poster.jpg" alt="UFC 311 Fight Poster" class="poster">
-    <p><strong>Date:</strong> Saturday, January 18</p>
-    <p><strong>Location:</strong> [Insert Location]</p>
+  <!-- Hero Section -->
+  <section id="hero">
+    <img src="poster.jpg" alt="UFC 311 Poster" class="hero-bg">
+    <div class="hero-content">
+      <h1>Boys Night: UFC 311</h1>
+      <a href="#rsvp" class="btn">RSVP Now</a>
+    </div>
+  </section>
+
+  <!-- Fight Details Section -->
+  <section id="fights">
     <h2>Main Card</h2>
-    <ul>
-      <li><strong>Lightweight:</strong> Islam Makhachev (c) vs. Arman Tsarukyan</li>
-      <li><strong>Bantamweight:</strong> Merab Dvalishvili (c) vs. Umar Nurmagomedov</li>
-      <li><strong>Light Heavyweight:</strong> Jiří Procházka vs. Jamahal Hill</li>
-      <li><strong>Lightweight:</strong> Beneil Dariush vs. Renato Moicano</li>
-      <li><strong>Middleweight:</strong> Kevin Holland vs. Reinier de Ridder</li>
-    </ul>
-    <h3>RSVP</h3>
+    <div class="fight-grid">
+      <div class="fight-card">
+        <h3>Lightweight</h3>
+        <p>Islam Makhachev (c) vs. Arman Tsarukyan</p>
+      </div>
+      <div class="fight-card">
+        <h3>Bantamweight</h3>
+        <p>Merab Dvalishvili (c) vs. Umar Nurmagomedov</p>
+      </div>
+      <div class="fight-card">
+        <h3>Light Heavyweight</h3>
+        <p>Jiří Procházka vs. Jamahal Hill</p>
+      </div>
+      <div class="fight-card">
+        <h3>Lightweight</h3>
+        <p>Beneil Dariush vs. Renato Moicano</p>
+      </div>
+      <div class="fight-card">
+        <h3>Middleweight</h3>
+        <p>Kevin Holland vs. Reinier de Ridder</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP Section -->
+  <section id="rsvp">
+    <h2>RSVP Now</h2>
     <form id="rsvp-form">
       <input type="text" id="name" placeholder="Your Name" required>
       <input type="email" id="email" placeholder="Your Email" required>
       <button type="submit">Submit</button>
     </form>
     <p id="response-message"></p>
-  </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Saturday, January 18 | Location: [Insert Address]</p>
+    <button onclick="shareInvite()">Share</button>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
