@@ -8,22 +8,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Header Section -->
+  <header id="header">
+    <h1 class="futuristic-title">Boys Night: UFC 311</h1>
+    <p class="futuristic-subtitle">Experience the ultimate fight night with the crew.</p>
+  </header>
+
   <!-- Static Poster Section -->
   <section id="poster">
     <img src="poster.jpg" alt="UFC 311 Poster" class="poster-img">
-    <div class="text-overlay">
-      <h1 class="futuristic-title">Boys Night: UFC 311</h1>
-      <p class="futuristic-subtitle">Experience the ultimate fight night with the crew.</p>
-    </div>
   </section>
 
   <!-- Date, Location, and Add to Calendar -->
   <section id="event-info">
     <div class="event-banner">
       <p>📅 Saturday, January 18 | 📍 Your Place</p>
-      <a href="event.ics" download="UFC_311_Boys_Night.ics" class="btn-calendar">
-        Add to Calendar
-      </a>
+      <a href="event.ics" download="UFC_311_Boys_Night.ics" class="btn-calendar">Add to Calendar</a>
     </div>
   </section>
 
@@ -53,5 +53,20 @@
       </div>
     </div>
   </section>
+
+  <!-- RSVP Section -->
+  <section id="rsvp">
+    <h2>Let Us Know You're Coming!</h2>
+    <form id="rsvp-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <button type="submit" class="btn-submit">RSVP</button>
+    </form>
+    <ul id="rsvp-list"></ul>
+  </section>
+
+  <!-- UFC Link -->
+  <footer id="footer">
+    <p>More info: <a href="https://www.ufcespanol.com/event/ufc-311" target="_blank" class="ufc-link">UFC 311 Official Page</a></p>
+  </footer>
 </body>
 </html>
