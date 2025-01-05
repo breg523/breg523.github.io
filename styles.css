@@ -7,55 +7,45 @@ body {
   overflow-x: hidden;
 }
 
-/* Futuristic Poster Section */
-#poster {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.poster-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.3) saturate(1.2); /* Futuristic tone */
-}
-
-.text-overlay {
-  position: relative;
+/* Header Section */
+#header {
   text-align: center;
-  z-index: 1;
+  padding: 20px;
 }
 
 .futuristic-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  color: #21e6c1; /* Neon teal */
+  color: #21e6c1;
   text-transform: uppercase;
   background: linear-gradient(90deg, #21e6c1, #278ea5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 10px;
 }
 
 .futuristic-subtitle {
   font-size: 1.2rem;
   color: #ffffffcc;
-  margin-bottom: 20px;
-  animation: fadeIn 2s ease-in-out;
+  margin-top: 10px;
+}
+
+/* Static Poster Section */
+#poster {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.poster-img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
 /* Event Info Section */
 #event-info {
   text-align: center;
-  padding: 20px;
+  margin: 20px 0;
 }
 
 .event-banner {
@@ -67,12 +57,6 @@ body {
   display: inline-block;
   max-width: 80%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-}
-
-.event-banner p {
-  font-size: 1.2rem;
-  color: #ffffffcc;
-  margin-bottom: 15px;
 }
 
 .btn-calendar {
@@ -95,14 +79,8 @@ body {
 
 /* Fight Details Section */
 #fights {
-  padding: 30px 20px;
   text-align: center;
-}
-
-#fights h2 {
-  font-size: 2rem;
-  color: #21e6c1;
-  margin-bottom: 20px;
+  padding: 20px 15px;
 }
 
 .fight-grid {
@@ -112,55 +90,57 @@ body {
 }
 
 .fight-card {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 20px;
-  border-radius: 10px;
+  padding: 15px;
   border: 1px solid #278ea5;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.fight-card:hover {
-  transform: scale(1.05);
+/* RSVP Section */
+#rsvp {
+  text-align: center;
+  padding: 20px 15px;
 }
 
-.fight-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+#rsvp-form {
+  margin: 20px auto;
+  display: inline-block;
+}
+
+#rsvp-form input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #278ea5;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#rsvp-form .btn-submit {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #21e6c1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#rsvp-list {
+  margin: 20px auto;
   color: #21e6c1;
+  list-style: none;
 }
 
-.fight-card p {
-  font-size: 0.9rem;
-  color: #ffffffcc;
+/* Footer Section */
+#footer {
+  text-align: center;
+  padding: 20px;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.ufc-link {
+  color: #21e6c1;
+  text-decoration: none;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  .futuristic-title {
-    font-size: 2.5rem;
-  }
-
-  .futuristic-subtitle {
-    font-size: 1rem;
-  }
-
-  .btn-calendar {
-    font-size: 0.9rem;
-    padding: 10px 20px;
-  }
-
-  #fights h2 {
-    font-size: 1.5rem;
-  }
+.ufc-link:hover {
+  text-decoration: underline;
 }
