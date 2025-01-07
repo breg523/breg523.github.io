@@ -1,5 +1,10 @@
-document.getElementById("rsvp-form").addEventListener("submit", function(event) {
-  event.preventDefault();
-  const name = document.getElementById("name").value;
-  document.getElementById("response-message").textContent = `Thanks for RSVPing, ${name}!`;
+document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = e.target.name.value.trim();
+  if (name) {
+    const listItem = document.createElement('li');
+    listItem.textContent = name;
+    document.getElementById('rsvp-list').appendChild(listItem);
+    e.target.reset();
+  }
 });
