@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vegas to Zion Guys Trip</title>
+  <title>Vegas to Zion Dergs Trip.</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Anton&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Animated Background -->
+  <div id="animated-bg"></div>
+
   <!-- Hero Section -->
   <header id="hero">
-    <h1 class="hero-title">Vegas to Zion Guys Trip 2025</h1>
-    <p class="hero-subtitle">Roadtrip, Adventure, and Unforgettable Memories!</p>
-    <a href="#itinerary" class="btn-primary">Save the Date</a>
+    <div class="text-container">
+      <h1 class="hero-title animate-text">🚗 VEGAS TO ZION GUYS TRIP 🚀</h1>
+      <p class="hero-subtitle animate-text">Come Correct....and Erect!</p>
+      <a href="#itinerary" class="btn-primary animate-button">Save the Date</a>
+    </div>
   </header>
 
   <!-- Countdown Section -->
   <section id="countdown">
-    <h2>Countdown to the Adventure</h2>
-    <div id="timer">
+    <h2 class="section-title animate-text">Countdown to the Adventure</h2>
+    <div id="timer" class="animate-timer">
       <div class="time-box">
         <span id="days">--</span>
         <p>Days</p>
@@ -40,24 +45,26 @@
 
   <!-- Itinerary Section -->
   <section id="itinerary">
-    <h2>Itinerary</h2>
-    <div class="itinerary-item">
-      <h3>Day 1</h3>
-      <p>Arrive in Las Vegas and settle in for a night of fun and excitement.</p>
-    </div>
-    <div class="itinerary-item">
-      <h3>Day 2</h3>
-      <p>Roadtrip to Zion National Park (or a nearby destination) for breathtaking views and camping under the stars.</p>
-    </div>
-    <div class="itinerary-item">
-      <h3>Day 3</h3>
-      <p>Head back to Vegas for one last epic night before heading home.</p>
+    <h2 class="section-title animate-text">The Itinerary</h2>
+    <div class="itinerary-container">
+      <div class="itinerary-item animate-box">
+        <h3>Day 1: Las Vegas</h3>
+        <p>Arrive and kick off the trip with Joey B blacking out at at 3pm then gamble off out budget for the trip!</p>
+      </div>
+      <div class="itinerary-item animate-box">
+        <h3>Day 2: Roadtrip to Zion</h3>
+        <p>Roadtrip to Zion and make Carlos DD.</p>
+      </div>
+      <div class="itinerary-item animate-box">
+        <h3>Day 3: Back to Vegas</h3>
+        <p>Return to Vegas make Carlos DD again and pass out at 8pm.</p>
+      </div>
     </div>
   </section>
 
   <!-- Photo Carousel -->
   <section id="carousel">
-    <h2>Preview the Journey</h2>
+    <h2 class="section-title animate-text">Preview the Journey</h2>
     <div class="carousel">
       <img src="vegas.jpg" alt="Las Vegas">
       <img src="zion.jpg" alt="Zion National Park">
@@ -65,19 +72,10 @@
     </div>
   </section>
 
-  <!-- RSVP Section -->
-  <section id="rsvp">
-    <h2>RSVP and Join the Fun!</h2>
-    <form id="rsvp-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <button type="submit" class="btn-submit">RSVP</button>
-    </form>
-    <ul id="rsvp-list"></ul>
-  </section>
-
   <!-- Footer -->
   <footer id="footer">
-    <p>Let's make this trip unforgettable! 🚗🌟</p>
+    <p>Let's make this trip legendary! 🚗🌟</p>
+    <a href="https://zora.co" target="_blank" class="btn-secondary">Get Inspired</a>
   </footer>
 
   <script src="script.js"></script>
