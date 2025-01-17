@@ -2,22 +2,34 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  background: #0f172a;
   color: #ffffff;
-  background: #0f1b2b; /* Dark, modern theme */
   overflow-x: hidden;
+  position: relative;
+}
+
+#animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #2196f3, #1de9b6, #0f172a);
+  animation: backgroundAnimation 10s infinite alternate;
+  z-index: -1;
 }
 
 /* Hero Section */
 #hero {
   text-align: center;
-  padding: 50px 20px;
-  background: linear-gradient(135deg, #2196f3, #1de9b6);
-  color: #fff;
+  padding: 80px 20px;
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 3.5rem;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 2px;
+  color: #ff4081;
   margin-bottom: 10px;
 }
 
@@ -33,11 +45,12 @@ body {
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .btn-primary:hover {
   transform: scale(1.1);
+  background: #ff6091;
 }
 
 /* Countdown Section */
@@ -54,61 +67,42 @@ body {
 
 .time-box {
   text-align: center;
-  background: #1c2735;
+  background: rgba(255, 255, 255, 0.1);
   padding: 15px;
   border-radius: 10px;
-  color: #21e6c1;
 }
 
-/* Itinerary Section */
-#itinerary {
-  padding: 40px 20px;
-  text-align: center;
+/* Animations */
+@keyframes backgroundAnimation {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
-.itinerary-item {
-  margin-bottom: 20px;
-  padding: 15px;
-  background: #1c2735;
-  border-radius: 10px;
-  color: #fff;
+.animate-text {
+  animation: fadeInUp 1.5s ease-out;
 }
 
-/* Carousel Section */
-#carousel {
-  text-align: center;
-  padding: 40px 20px;
+.animate-box {
+  animation: fadeInScale 1.5s ease-out;
 }
 
-.carousel img {
-  max-width: 90%;
-  border-radius: 10px;
-  margin: 10px 0;
+.animate-button {
+  animation: pulse 2s infinite;
 }
 
-/* RSVP Section */
-#rsvp {
-  text-align: center;
-  padding: 40px 20px;
+/* Keyframes */
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-#rsvp-form input {
-  padding: 10px;
-  margin-right: 10px;
-  border-radius: 5px;
+@keyframes fadeInScale {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-#rsvp-form button {
-  padding: 10px 20px;
-  background: #21e6c1;
-  border: none;
-  border-radius: 5px;
-  color: #121212;
-  cursor: pointer;
-}
-
-#rsvp-list {
-  margin: 20px auto;
-  list-style: none;
-  color: #21e6c1;
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
