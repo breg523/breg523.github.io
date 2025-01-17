@@ -103,3 +103,12 @@ body {
   background: #21e6c1;
   border: none;
   border-radius: 5px;
+  color: #121212;
+  cursor: pointer;
+}
+
+#rsvp-list {
+  margin: 20px auto;
+  list-style: none;
+  color: #21e6c1;
+}
