@@ -1,52 +1,53 @@
 <!DOCTYPE html>
-<html data-rs-theme="zora-ui" dir="ltr" data-rs-color-mode="light" style="
-  --wcm-color-fg-1: rgb(228,231,231);
-  --wcm-color-fg-2: rgb(148,158,158);
-  --wcm-color-fg-3: rgb(110,119,119);
-  --wcm-color-bg-1: rgb(20,20,20);
-  --wcm-color-bg-2: rgb(39,42,42);
-  --wcm-color-bg-3: rgb(59,64,64);
-  --wcm-accent-color: #3396FF;
-  --wcm-font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', sans-serif;
-">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boys Trip 2024 - Vegas & Mt. Zion</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <title>Champions League Final at My House</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #181818; color: #fff; text-align: center; }
+    .container { margin-top: 100px; }
+    .hidden { display: none; }
+    input, button { padding: 10px; margin: 10px; }
+    .logo { font-size: 2em; font-weight: bold; margin-bottom: 30px; }
+    .theme { margin-bottom: 20px; }
+  </style>
 </head>
 <body>
-  <header class="zora-header">
-    <div class="header-content">
-      <h1>Boys Trip 2024</h1>
-      <p>Las Vegas & Mt. Zion Adventure</p>
-      <div id="countdown" class="countdown-timer"></div>
-    </div>
-  </header>
+  <div class="container" id="login">
+    <div class="logo">🏆 Champions League Final</div>
+    <div class="theme">Enter the password to join the ultimate football night!</div>
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="checkPassword()">Enter</button>
+    <div id="error" style="color: red;"></div>
+  </div>
 
-  <section class="intro zora-section">
-    <h2>Get Ready for the Ultimate Trip!</h2>
-    <p>Join us for an unforgettable adventure filled with excitement, nature, and tech vibes. We'll kick things off in Las Vegas for the Bitcoin Conference, then head to the stunning landscapes of Mt. Zion.</p>
-    <a href="https://b.tc/conference/" target="_blank" class="cta-button">Bitcoin Conference Info</a>
-  </section>
+  <div class="container hidden" id="rsvp">
+    <div class="logo">🎉 Welcome to the Final at My House!</div>
+    <div class="theme">Will you be attending? Enter your name below:</div>
+    <input type="text" id="name" placeholder="Your Name">
+    <button onclick="submitName()">RSVP</button>
+    <div id="thanks" style="color: #0f0;"></div>
+  </div>
 
-  <section class="details zora-section">
-    <h2>Trip Highlights</h2>
-    <div class="highlight-card">
-      <h3>Las Vegas</h3>
-      <p>Experience the glitz and glamour of Sin City, attend the Bitcoin Conference, and enjoy the nightlife.</p>
-    </div>
-    <div class="highlight-card">
-      <h3>Mt. Zion</h3>
-      <p>Explore the breathtaking canyons, hike through stunning trails, and connect with nature.</p>
-    </div>
-  </section>
+  <script>
+    const PASSWORD = "final2025"; // Set your password here
 
-  <footer class="zora-footer">
-    <p>Let's make memories that last a lifetime! 🚀</p>
-  </footer>
+    function checkPassword() {
+      const input = document.getElementById('password').value;
+      if (input === PASSWORD) {
+        document.getElementById('login').classList.add('hidden');
+        document.getElementById('rsvp').classList.remove('hidden');
+      } else {
+        document.getElementById('error').innerText = "Incorrect password. Try again.";
+      }
+    }
 
-  <script src="script.js"></script>
+    function submitName() {
+      const name = document.getElementById('name').value;
+      if (name.trim()) {
+        document.getElementById('thanks').innerText = `Thanks, ${name}! See you at the final!`;
+      }
+    }
+  </script>
 </body>
 </html>
