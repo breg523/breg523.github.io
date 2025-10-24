@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Replit Portfolio - Fintech & Modern Projects</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Styles for Gen Z Fintech Vibe */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Gradient Background for dynamic Gen Z feel */
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+        }
+
+        /* Custom glow effect on hover for links/buttons */
+        .glow-hover {
+            transition: all 0.3s ease;
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Custom background for the screenshot placeholder */
+        .screenshot-placeholder {
+            background: linear-gradient(45deg, #1e3a8a, #4f46e5);
+            animation: pulse-bg 4s infinite alternate;
+        }
+
+        @keyframes pulse-bg {
+            0% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="text-white antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-12 md:py-20 max-w-6xl">
+
+        <!-- Header / Hero Section -->
+        <header class="text-center mb-16 md:mb-24">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-indigo-500">
+                    My Unpaid Hobby Portfolio
+                </span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+                A highly curated, unhinged collection of what I actually do instead of doom-scrolling. Since you screenshotted this link from my PDF resume, congrats on being the main character.
+            </p>
+            <p class="mt-4 text-sm text-gray-500">
+                (Yes, most of it was prototyped using **Replit**. Aesthetic is 'Fintech Grunge'.)
+            </p>
+        </header>
+
+        <!-- Projects Grid Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Project Card 1: Crypto Tracker -->
+            <div class="bg-gray-800/70 backdrop-blur-sm p-6 rounded-xl shadow-2xl transition-all duration-300 hover:bg-gray-700/80 glow-hover">
+                <!-- Screenshot Placeholder (Replace this div content with your actual screenshot image) -->
+                <div class="screenshot-placeholder h-40 flex items-center justify-center rounded-lg mb-6 shadow-xl">
+                    <span class="text-lg font-bold text-white/90">Project 1 Screenshot (1280x720)</span>
+                    <img src="https://placehold.co/1280x720/1e3a8a/ffffff?text=Your+Project+Screenshot+Here"
+                        onerror="this.style.display='none'; this.previousElementSibling.style.display='block';"
+                        style="display:none;" class="w-full h-full object-cover rounded-lg" alt="Project Screenshot">
+                    <!-- The above image tag is a placeholder for when you add your own image URL -->
+                </div>
+
+                <h2 class="text-3xl font-bold mb-2 text-cyan-400">Decentralized Budget Tool</h2>
+                <p class="text-gray-400 mb-6 text-sm">
+                    A Python-based budgeting API built entirely in Replit, featuring real-time transaction parsing and automated categorization, demonstrating core backend development skills.
+                </p>
+
+                <a href="https://replit.com/@YourUsername/YourProjectName1" target="_blank" rel="noopener noreferrer"
+                   class="inline-block w-full text-center py-3 px-6 text-white font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-500 transition-colors glow-hover">
+                    View on Replit
+                </a>
+            </div>
+
+            <!-- Project Card 2: Stock Predictor -->
+            <div class="bg-gray-800/70 backdrop-blur-sm p-6 rounded-xl shadow-2xl transition-all duration-300 hover:bg-gray-700/80 glow-hover">
+                 <!-- Screenshot Placeholder (Replace this div content with your actual screenshot image) -->
+                <div class="screenshot-placeholder h-40 flex items-center justify-center rounded-lg mb-6 shadow-xl">
+                    <span class="text-lg font-bold text-white/90">Project 2 Screenshot (1280x720)</span>
+                    <img src="https://placehold.co/1280x720/4f46e5/ffffff?text=Your+Project+Screenshot+Here"
+                        onerror="this.style.display='none'; this.previousElementSibling.style.display='block';"
+                        style="display:none;" class="w-full h-full object-cover rounded-lg" alt="Project Screenshot">
+                </div>
+
+                <h2 class="text-3xl font-bold mb-2 text-cyan-400">Risk Assessment Model</h2>
+                <p class="text-gray-400 mb-6 text-sm">
+                    A minimal machine learning app using Replit's environment to quickly prototype a logistic regression model for basic market risk scoring.
+                </p>
+
+                <a href="https://replit.com/@YourUsername/YourProjectName2" target="_blank" rel="noopener noreferrer"
+                   class="inline-block w-full text-center py-3 px-6 text-white font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-500 transition-colors glow-hover">
+                    View on Replit
+                </a>
+            </div>
+
+            <!-- Project Card 3: Interactive Visualizer -->
+            <div class="bg-gray-800/70 backdrop-blur-sm p-6 rounded-xl shadow-2xl transition-all duration-300 hover:bg-gray-700/80 glow-hover">
+                 <!-- Screenshot Placeholder (Replace this div content with your actual screenshot image) -->
+                <div class="screenshot-placeholder h-40 flex items-center justify-center rounded-lg mb-6 shadow-xl">
+                    <span class="text-lg font-bold text-white/90">Project 3 Screenshot (1280x720)</span>
+                    <img src="https://placehold.co/1280x720/155e75/ffffff?text=Your+Project+Screenshot+Here"
+                        onerror="this.style.display='none'; this.previousElementSibling.style.display='block';"
+                        style="display:none;" class="w-full h-full object-cover rounded-lg" alt="Project Screenshot">
+                </div>
+
+                <h2 class="text-3xl font-bold mb-2 text-cyan-400">Data Visualization Sandbox</h2>
+                <p class="text-gray-400 mb-6 text-sm">
+                    An interactive HTML/JS front-end hosted on Replit, showcasing dynamic data rendering and modern UI/UX design principles applied to financial data.
+                </p>
+
+                <a href="https://replit.com/@YourUsername/YourProjectName3" target="_blank" rel="noopener noreferrer"
+                   class="inline-block w-full text-center py-3 px-6 text-white font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-500 transition-colors glow-hover">
+                    View on Replit
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Footer / Call to Action -->
+        <footer class="mt-20 pt-8 border-t border-gray-700 text-center">
+            <p class="text-gray-500 text-sm">
+                Built with passion, powered by Replit.
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
